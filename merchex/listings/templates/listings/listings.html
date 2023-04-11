@@ -1,0 +1,12 @@
+{% extends 'listings/base.html' %}
+
+<!-- Contenu à insérer dans le block content -->
+{% block content %}
+<h1>Listing</h1>
+<p>Liste des objets en vente :</p>
+<ul>
+  {% for listing in listings %}
+  <li>{{listing.title}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
