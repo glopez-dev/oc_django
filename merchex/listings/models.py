@@ -8,6 +8,7 @@ class Band(models.Model):
         HIP_HOP = 'HH'
         RAP = 'R'
         CLOUD = 'C'
+        ELECTRO = 'E'
 
     name = models.fields.CharField(max_length=100)
     genre = models.fields.CharField(choices=Genre.choices, max_length=5)
@@ -17,6 +18,9 @@ class Band(models.Model):
     )
     active = models.fields.BooleanField(default=True)
     official_homepage = models.fields.URLField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.name}'
 
 
 class Listing(models.Model):
@@ -34,3 +38,4 @@ class Listing(models.Model):
     year = models.fields.IntegerField(
         null=True, blank=True, validators=[MaxValueValidator(2023)])
     type = models.fields.CharField(choices=Type.choices, max_length=20)
+    band = models.ForeignKey(Band, null=True, on_delete=models.SET_NULL)
