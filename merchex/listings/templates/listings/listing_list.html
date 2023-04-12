@@ -6,7 +6,7 @@
 <p>Liste des objets en vente :</p>
 <ul>
   {% for listing in listings %}
-  <li>{{listing.title}}</li>
+  <li><a href="{% url 'listing-detail' listing.id %}">{{listing.title}}</li>
   {% endfor %}
 </ul>
 {% endblock %}
