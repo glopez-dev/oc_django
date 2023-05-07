@@ -1,0 +1,11 @@
+{% extends 'listings/base.html' %}
+
+<!-- Content to insert -->
+{% block content %}
+<h1>Supprimer l'annonce "{{listing.title}}" ?</h1>
+<form action="" method="POST" >
+    {% csrf_token %}
+    <input type="submit" value="Confirmer"/>
+</form>
+<a href='{% url 'listing-list' %}'>Annuler</a>
+{% endblock content %}

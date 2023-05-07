@@ -1,0 +1,11 @@
+{% extends 'listings/base.html' %}
+
+<!-- Content to insert -->
+{% block content %}
+<h1>Êtes vous sûr de vouloir supprimer {{band.name}} ?</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Confirmer" />
+</form>
+<a href="{% url 'band-detail' band.id %}">Annuler</a>
+{% endblock content %}

@@ -2,11 +2,12 @@
 
 <!-- Contenu à insérer dans le block content -->
 {% block content %}
-<h1>Listing</h1>
+<h1>Annonces</h1>
 <p>Liste des objets en vente :</p>
 <ul>
   {% for listing in listings %}
   <li><a href="{% url 'listing-detail' listing.id %}">{{listing.title}}</li>
   {% endfor %}
 </ul>
+<a href="{% url 'listing-add' %}">Ajouter une annonce</a>
 {% endblock %}

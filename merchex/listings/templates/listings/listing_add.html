@@ -1,0 +1,10 @@
+{% extends 'listings/base.html' %}
+
+<!-- Contenu à insérer dans le gabarit base.html -->
+{% block content %}
+<h1>Ajouter un listing</h1>
+<form action="" method="POST">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Ajouter" />
+</form>
+{% endblock %}
